@@ -1,44 +1,40 @@
 ﻿namespace MariGold.Data.DataLayer
 {
-    using System;
-    using System.Data;
-    using System.Collections.Generic;
-    using MariGold.Data;
-
-    internal sealed class DataProvider : IDataProvider
-    {
-        private void ValidateArguments(IDbConnection connection, Query query)
-        {
-            if (connection == null)
-            {
-                throw new ArgumentNullException("connection");
-            }
-
-            if (query == null)
-            {
-                throw new ArgumentNullException("query");
-            }
-        }
-
-        public T Get<T>(IDbConnection connection, Query query)
-        {
-            ValidateArguments(connection, query);
-
-            return connection.Get<T>(query.Sql, query.CommandType, query.Parameters);
-        }
-
-        public IList<T> GetList<T>(IDbConnection connection, Query query)
-        {
-            ValidateArguments(connection, query);
-
-            return connection.GetList<T>(query.Sql, query.CommandType, query.Parameters);
-        }
-
-        public IEnumerable<T> GetEnumerable<T>(IDbConnection connection, Query query)
-        {
-            ValidateArguments(connection, query);
-
-            return connection.GetEnumerable<T>(query.Sql, query.CommandType, query.Parameters);
-        }
-    }
+	using System;
+	
+	public abstract class DataProvider<T>
+		where T : Database
+	{
+		private readonly SqlContainer container;
+		private readonly T db;
+		
+		protected abstract void RegisterQueries(SqlContainer container);
+		
+		public DataProvider(T db)
+		{
+			if (db == null)
+			{
+				throw new ArgumentNullException("db");
+			}
+			
+			this.db = db;
+			container = new SqlContainer();
+			RegisterQueries(container);
+		}
+		
+		public Query<T> this[string name]
+		{
+			get
+			{
+				Sql query;
+				
+				if (!container.TryGetSql(name, out query))
+				{
+					throw new ArgumentException(string.Concat(name, " is not found"));
+				}
+				
+				return new Query<T>(query, db);
+			}
+		}
+	}
 }

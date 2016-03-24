@@ -1,0 +1,10 @@
+﻿namespace MariGold.Data.DataLayer.Tests
+{
+	using System;
+	
+	public class Employee
+	{
+		public int Id{ get; set; }
+		public string Name{ get; set; }
+	}
+}

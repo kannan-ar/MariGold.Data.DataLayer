@@ -1,9 +1,12 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 2013
+# Visual Studio 2012
+# SharpDevelop 5.1
 VisualStudioVersion = 12.0.31101.0
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MariGold.Data.DataLayer", "MariGold.Data.DataLayer\MariGold.Data.DataLayer.csproj", "{5692161D-8DE0-4D2D-8EDD-B63510886E5E}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MariGold.Data.DataLayer.Tests", "MariGold.Data.DataLayer.Tests\MariGold.Data.DataLayer.Tests.csproj", "{63090370-DBFF-4327-AC7D-9285E731DE85}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -15,6 +18,10 @@ Global
 		{5692161D-8DE0-4D2D-8EDD-B63510886E5E}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{5692161D-8DE0-4D2D-8EDD-B63510886E5E}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{5692161D-8DE0-4D2D-8EDD-B63510886E5E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{63090370-DBFF-4327-AC7D-9285E731DE85}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{63090370-DBFF-4327-AC7D-9285E731DE85}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{63090370-DBFF-4327-AC7D-9285E731DE85}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{63090370-DBFF-4327-AC7D-9285E731DE85}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
