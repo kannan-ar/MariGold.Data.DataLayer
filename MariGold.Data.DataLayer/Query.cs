@@ -19,6 +19,7 @@
 		
 		public Query<T> AddParam(string paramName, object value)
 		{
+			parameters.Add(paramName, value);
 			return this;
 		}
 		

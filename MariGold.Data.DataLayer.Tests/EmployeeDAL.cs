@@ -4,14 +4,14 @@
 	using System.Data;
 	using System.Collections.Generic;
 	
-	public class EmployeeDAL : DataProvider<SqlDatabase>
+	public class EmployeeDAL : DataProvider<DapperDatabase>
 	{
 		public enum Queries
 		{
 			GET_BY_ID
 		}
 		
-		public EmployeeDAL(SqlDatabase db)
+		public EmployeeDAL(DapperDatabase db)
 			: base(db)
 		{
 		}
